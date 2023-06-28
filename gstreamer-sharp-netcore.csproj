@@ -12,7 +12,7 @@
   <PropertyGroup>
     <Title>GstSharp for .NET Core</Title>
     <PackageDescription>GStreamer .NET Core Bindings</PackageDescription>
-    <Version>0.0.8</Version>
+    <Version>0.0.9</Version>
     <Authors>vladkol</Authors>
     <PackageLicenseExpression>LGPL-2.1-only</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/vladkol/gstreamer-netcore</RepositoryUrl>
@@ -25,6 +25,8 @@
     <None Include="icon.png" Pack="true" PackagePath="" />
     <EmbeddedResource Include="gstreamer\builddir\subprojects\gstreamer-sharp\sources\gstreamer-sharp.dll.config" />
     <Compile Include="gst-netcore\**\*.cs" />
+    <EmbeddedResource Remove="gstreamer\**" />
+    <None Remove="gstreamer\**" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="glib-sharp">
