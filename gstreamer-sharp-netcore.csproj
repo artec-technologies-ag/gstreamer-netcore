@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <RootNamespace>Gst</RootNamespace>
     <AssemblyName>gstreamer-sharp-netcore</AssemblyName>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -21,16 +21,17 @@
     <PackageTags>GStreamer GstSharp bindings</PackageTags>
     <IncludeContentInPack>true</IncludeContentInPack>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="GioSharp" Version="3.22.25.74" />
-    <PackageReference Include="GLibSharp" Version="3.22.25.74" />
-  </ItemGroup>
   <ItemGroup>
     <None Include="icon.png" Pack="true" PackagePath="" />
-    <EmbeddedResource Include="gstreamer-sharp\sources\gstreamer-sharp.dll.config" />
-    <Compile Include="gstreamer-sharp\sources\custom\**\*.cs" />
-    <Compile Include="gstreamer-sharp\sources\generated\**\*.cs" Exclude="gstreamer-sharp\sources\generated\Gst\PadTemplate.cs" />
+    <EmbeddedResource Include="gstreamer\builddir\subprojects\gstreamer-sharp\sources\gstreamer-sharp.dll.config" />
     <Compile Include="gst-netcore\**\*.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="glib-sharp">
+      <HintPath>gstreamer\builddir\subprojects\gtk-sharp\Source\glib\glib-sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="gstreamer-sharp">
+      <HintPath>gstreamer\builddir\subprojects\gstreamer-sharp\sources\gstreamer-sharp.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>

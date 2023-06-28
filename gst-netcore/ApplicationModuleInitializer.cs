@@ -87,7 +87,13 @@ namespace Gst
                  select el).FirstOrDefault();
 
             if (map != null)
+            {
                 mappedLibName = map.Attribute("target").Value;
+            }
+            else if(os == "windows")
+            {
+                mappedLibName = originalLibName;
+            }
 
             return (mappedLibName != null);
         }
