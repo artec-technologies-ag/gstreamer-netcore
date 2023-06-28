@@ -93,10 +93,19 @@ namespace GstreamerSharp
 
 ## Building 
 1) Clone the repository **recursively** (notice --recurse flag)
+2) Perform [build environment setup on window](https://gitlab.freedesktop.org/gstreamer/gstreamer#windows-prerequisites-setup)
+3) Change directory to submodule: `cd gstreamer-netcore/gstreamer`
+4) Execute `meson setup --vsenv -Dsharp=enabled builddir` in any shell
+5) Change directory to builddir `cd builddir`
+6) Compile gstreamer-sharp: `meson compile gstreamer-sharp` 
 2) Build the project using dotnet command line or a compatible IDE of your choice (I use [Visual Studio Code](https://code.visualstudio.com/) on Windows, macOS and Linux)
+
 ```
 git clone https://github.com/vladkol/gstreamer-netcore --recurse
-cd gstreamer-netcore
+cd gstreamer-netcore/gstreamer
+meson setup --vsenv -Dsharp=enabled builddir
+cd builddir
+meson compile gstreamer-sharp
 dotnet build
 ```
 
@@ -109,6 +118,7 @@ GStreamer-Sharp has [a plenty of samples](https://github.com/GStreamer/gstreamer
 * Rudimentary [video player](samples/AvaloniaPlayer) made with [Avalonia UI](https://github.com/AvaloniaUI/Avalonia)
 
 * [GStreamer video processing pipeline](https://github.com/there-was-a-face/1-GStreamer-video), GStreamer video processing pipeline with raw sample handling, for an RTSP stream, web camera, or pretty much any GStreamer pipeline. If you want to create a real-time machine learning pipeline, it's your starting point.
+
 
 ## License 
 gstreamer-sharp is licensed under the [LGPL 2.1](https://www.gnu.org/licenses/lgpl-2.1.html), same as many parts of GStreamer and gstreamer-sharp.
